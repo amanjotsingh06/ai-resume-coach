@@ -1,0 +1,27 @@
+/* ============================================================
+   SkeletonCard — animated shimmer loading placeholder
+   ============================================================ */
+
+@keyframes shimmer {
+  0% {
+    background-position: -600px 0;
+  }
+  100% {
+    background-position: 600px 0;
+  }
+}
+
+.skeleton-card {
+  border-radius: 12px;
+  background: linear-gradient(
+    90deg,
+    var(--shimmer-base) 0%,
+    var(--shimmer-mid) 40%,
+    var(--shimmer-peak) 50%,
+    var(--shimmer-mid) 60%,
+    var(--shimmer-base) 100%
+  );
+  background-size: 1200px 100%;
+  animation: shimmer 1.6s ease-in-out infinite;
+  /* width / height applied inline from props */
+}

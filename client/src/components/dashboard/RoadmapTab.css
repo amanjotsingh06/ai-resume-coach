@@ -1,0 +1,194 @@
+/* ── RoadmapTab ───────────────────────────────────────── */
+
+.roadmap-tab {
+  padding: 2rem 0;
+}
+
+.roadmap-tab__header {
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.roadmap-tab__title {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin: 0 0 0.4rem;
+}
+
+.roadmap-tab__subtitle {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.roadmap-tab__empty {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--text-secondary);
+  font-style: italic;
+  padding: 3rem;
+  text-align: center;
+}
+
+/* ── Vertical timeline ────────────────────────────────── */
+
+.timeline {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Central spine */
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, #6366F1 0%, rgba(99, 102, 241, 0.1) 100%);
+}
+
+/* Each item */
+.timeline__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  padding: 0 0 2.5rem;
+  position: relative;
+}
+
+/* Left items: card on left, node on right edge of spine */
+.timeline__item--left {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+/* Right items: card on right, node on left edge of spine */
+.timeline__item--right {
+  flex-direction: row;
+}
+
+/* Node / dot */
+.timeline__node {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timeline__dot {
+  display: block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #6366F1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25), 0 0 0 6px rgba(99, 102, 241, 0.08);
+  transition: box-shadow 0.2s ease;
+}
+
+.timeline__item:hover .timeline__dot {
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.45), 0 0 0 8px rgba(99, 102, 241, 0.12);
+}
+
+/* Card */
+.timeline__card {
+  width: calc(50% - 3rem);
+  background: var(--bg-card);
+  border: 1px solid var(--border-default);
+  border-radius: 12px;
+  padding: 1.375rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: border-color 0.18s, box-shadow 0.18s;
+}
+
+.timeline__card:hover {
+  border-color: rgba(99, 102, 241, 0.40);
+  box-shadow: 0 8px 28px rgba(99, 102, 241, 0.09);
+}
+
+.timeline__card-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.timeline__item--left .timeline__card-badges {
+  justify-content: flex-end;
+}
+
+.timeline__skill {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 1.0625rem;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+/* Resources list */
+.timeline__resources {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.timeline__resource {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  padding-left: 1rem;
+  position: relative;
+  line-height: 1.5;
+}
+
+.timeline__resource::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: #6366F1;
+  font-size: 0.75rem;
+}
+
+/* Responsive: stack on small screens */
+@media (max-width: 680px) {
+  .timeline::before {
+    left: 1rem;
+    transform: none;
+  }
+
+  .timeline__item,
+  .timeline__item--left,
+  .timeline__item--right {
+    flex-direction: column;
+    padding-left: 2.5rem;
+    text-align: left;
+  }
+
+  .timeline__node {
+    left: 1rem;
+    transform: none;
+  }
+
+  .timeline__card {
+    width: 100%;
+  }
+
+  .timeline__item--left .timeline__card-badges {
+    justify-content: flex-start;
+  }
+}

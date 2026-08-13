@@ -1,0 +1,289 @@
+@import "tailwindcss";
+
+/* ============================================================
+   Design System Tokens — Stitch-generated palette
+   ============================================================ */
+
+@theme {
+  /* ─── Color Palette ─── */
+  --color-surface-bright: #39383e;
+  --color-primary-fixed: #e1e0ff;
+  --color-on-secondary: #00363e;
+  --color-on-primary-fixed-variant: #2f2ebe;
+  --color-on-error-container: #ffdad6;
+  --color-surface-container-low: #1b1b20;
+  --color-surface: #131318;
+  --color-secondary-fixed-dim: #2fd9f4;
+  --color-outline: #908fa0;
+  --color-on-primary-fixed: #07006c;
+  --color-error: #ffb4ab;
+  --color-background: #0A0A0F;
+  --color-surface-container-lowest: #0e0e13;
+  --color-secondary: #22D3EE;
+  --color-surface-tint: #c0c1ff;
+  --color-error-container: #93000a;
+  --color-secondary-container: #00cbe6;
+  --color-inverse-primary: #494bd6;
+  --color-outline-variant: #2D2D3F;
+  --color-tertiary-fixed: #acf847;
+  --color-on-primary: #1000a9;
+  --color-on-tertiary-fixed: #102000;
+  --color-tertiary: #84CC16;
+  --color-on-secondary-container: #00515d;
+  --color-on-secondary-fixed-variant: #004e5a;
+  --color-primary: #6366F1;
+  --color-inverse-on-surface: #303036;
+  --color-surface-container-high: #1E1E2E;
+  --color-on-tertiary-fixed-variant: #304f00;
+  --color-on-primary-container: #0d0096;
+  --color-tertiary-fixed-dim: #91db2a;
+  --color-on-tertiary: #1f3700;
+  --color-on-surface: #e4e1e9;
+  --color-surface-dim: #131318;
+  --color-primary-fixed-dim: #c0c1ff;
+  --color-inverse-surface: #e4e1e9;
+  --color-tertiary-container: #65a100;
+  --color-on-error: #690005;
+  --color-on-tertiary-container: #1a2f00;
+  --color-surface-container-highest: #35343a;
+  --color-surface-container: #1f1f25;
+  --color-on-secondary-fixed: #001f25;
+  --color-surface-variant: #35343a;
+  --color-secondary-fixed: #a2eeff;
+  --color-on-surface-variant: #94A3B8;
+  --color-primary-container: #8083ff;
+  --color-on-background: #e4e1e9;
+
+  /* ─── Font Families ─── */
+  --font-headline: "Syne", sans-serif;
+  --font-body: "DM Sans", sans-serif;
+  --font-label: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  /* ─── Border Radius ─── */
+  --radius: 0.25rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-full: 9999px;
+}
+
+/* ============================================================
+   CSS Custom Properties — Dark (default)
+   ============================================================ */
+:root,
+html.dark {
+  --bg-page:        #0A0A0F;
+  --bg-surface:     #131318;
+  --bg-card:        #1E1E2E;
+  --bg-input:       #13131A;
+  --bg-nav:         #0A0A0F;
+  --bg-sidebar:     #1b1b20;
+  --bg-hover:       #1f1f25;
+  --bg-subtle:      #0A0A0F;
+
+  --border-default: #2D2D3F;
+  --border-nav:     #2D2D3F;
+
+  --text-primary:   #F1F5F9;
+  --text-secondary: #94A3B8;
+  --text-muted:     #64748B;
+  --text-brand:     #F1F5F9;
+
+  --accent:         #6366F1;
+  --accent-dim:     rgba(99, 102, 241, 0.08);
+
+  --shimmer-base:   #1E1E2E;
+  --shimmer-mid:    #2a2a40;
+  --shimmer-peak:   #32324d;
+}
+
+/* ============================================================
+   CSS Custom Properties — Light
+   ============================================================ */
+html.light {
+  --bg-page:        #F1F5F9;
+  --bg-surface:     #FFFFFF;
+  --bg-card:        #FFFFFF;
+  --bg-input:       #F8FAFC;
+  --bg-nav:         #FFFFFF;
+  --bg-sidebar:     #FFFFFF;
+  --bg-hover:       #F1F5F9;
+  --bg-subtle:      #EFF6FF;
+
+  --border-default: #E2E8F0;
+  --border-nav:     #E2E8F0;
+
+  --text-primary:   #0F172A;
+  --text-secondary: #475569;
+  --text-muted:     #94A3B8;
+  --text-brand:     #0F172A;
+
+  --accent:         #4F46E5;
+  --accent-dim:     rgba(79, 70, 229, 0.08);
+
+  --shimmer-base:   #E2E8F0;
+  --shimmer-mid:    #CBD5E1;
+  --shimmer-peak:   #E2E8F0;
+}
+
+/* ============================================================
+   Base Resets
+   ============================================================ */
+body {
+  margin: 0;
+  font-family: "DM Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+#root {
+  width: 100%;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+/* ============================================================
+   Global light-mode overrides for Tailwind inline-hex pages
+   (Dashboard, AnalysisPage, DashboardPage, SettingsPage)
+   ============================================================ */
+
+/* Page background */
+html.light .min-h-screen,
+html.light [class*="bg-\[#0A0A0F\]"],
+html.light [class*="bg-\[#131318\]"] {
+  background-color: var(--bg-page) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Cards / panels */
+html.light [class*="bg-\[#1E1E2E\]"],
+html.light [class*="bg-\[#1b1b20\]"],
+html.light [class*="bg-\[#1a1a3a\]"] {
+  background-color: var(--bg-card) !important;
+  border-color: var(--border-default) !important;
+}
+
+/* Nested dark bg used for nav */
+html.light [class*="bg-\[#1f1f25\]"],
+html.light [class*="bg-\[#252536\]"] {
+  background-color: var(--bg-hover) !important;
+}
+
+/* Sidebar bg on active */
+html.light .fixed.left-0 {
+  background-color: var(--bg-card) !important;
+  border-color: var(--border-default) !important;
+}
+
+/* Navbar */
+html.light header[class*="bg-\[#131318\]"],
+html.light nav[class*="bg-\[#1b1b20\]"] {
+  background-color: var(--bg-nav) !important;
+  border-color: var(--border-nav) !important;
+}
+
+/* Inputs */
+html.light [class*="bg-\[#13131A\]"] {
+  background-color: var(--bg-input) !important;
+  border-color: var(--border-default) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Text: on-surface white */
+html.light .text-white,
+html.light [class*="text-\[#e4e1e9\]"],
+html.light [class*="text-\[#F1F5F9\]"] {
+  color: var(--text-primary) !important;
+}
+
+/* Text: muted secondary */
+html.light [class*="text-\[#94A3B8\]"],
+html.light .text-slate-400 {
+  color: var(--text-secondary) !important;
+}
+
+/* Borders */
+html.light [class*="border-\[#2D2D3F\]"],
+html.light [class*="border-white\/\[0\.06\]"],
+html.light [class*="border-white\/10"] {
+  border-color: var(--border-default) !important;
+}
+
+/* Dividers */
+html.light .bg-\[#2D2D3F\],
+html.light [class*="divide-\[#2D2D3F\]"] > * {
+  border-color: var(--border-default) !important;
+}
+html.light .h-px.bg-\[#2D2D3F\] {
+  background-color: var(--border-default) !important;
+}
+
+/* Subtle dark inner bg (about section card, theme preview) */
+html.light [class*="bg-\[#0A0A0F\]"] {
+  background-color: var(--bg-subtle) !important;
+}
+
+/* Avatar / icon containers */
+html.light [class*="bg-\[#35343a\]"],
+html.light [class*="bg-\[#2a292f\]"] {
+  background-color: var(--bg-hover) !important;
+}
+
+/* Footer text */
+html.light [class*="text-\[#464554\]"] {
+  color: var(--text-muted) !important;
+}
+
+/* Mobile bottom nav */
+html.light nav[class*="border-white\/10"] {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(16px);
+}
+
+/* Sidebar hover active links */
+html.light a[class*="text-\[#a1a1aa\]"]:hover,
+html.light button[class*="text-\[#a1a1aa\]"]:hover {
+  color: var(--text-primary) !important;
+}
+html.light [class*="text-\[#a1a1aa\]"] {
+  color: var(--text-secondary) !important;
+}
+
+/* ============================================================
+   Utility helpers used by Stitch-generated pages
+   ============================================================ */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+.syne-bold {
+  font-family: "Syne", sans-serif;
+  font-weight: 800;
+}
+
+.dm-sans {
+  font-family: "DM Sans", sans-serif;
+}
+
+.jetbrains {
+  font-family: "JetBrains Mono", monospace;
+}
+
+.gradient-primary {
+  background: linear-gradient(135deg, #6366F1 0%, #8083ff 100%);
+}
+
+.ghost-border {
+  outline: 1px solid rgba(70, 69, 84, 0.15);
+}
+
+.glass-panel {
+  background: rgba(30, 30, 46, 0.6);
+  backdrop-filter: blur(12px);
+}

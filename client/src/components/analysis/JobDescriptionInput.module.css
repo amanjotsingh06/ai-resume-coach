@@ -1,0 +1,79 @@
+/* ─── JobDescriptionInput.module.css ────────────────────────────────────────── */
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+}
+
+.labelRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 10px;
+}
+
+.label {
+  font-family: 'DM Sans', 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--text-primary);
+  letter-spacing: 0.02em;
+}
+
+.charCount {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--text-muted);
+  transition: color 0.2s ease;
+}
+
+.charCountWarn {
+  color: #F97316;
+}
+
+.charCountFull {
+  color: #F43F5E;
+}
+
+.textareaWrap {
+  position: relative;
+}
+
+.textarea {
+  width: 100%;
+  min-height: 280px;
+  background-color: var(--bg-input);
+  border: 1.5px solid var(--border-default);
+  border-radius: 10px;
+  padding: 20px 22px;
+  box-sizing: border-box;
+  color: var(--text-primary);
+  font-family: 'DM Sans', 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 1.7;
+  resize: vertical;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  caret-color: #6366F1;
+}
+
+.textarea::placeholder {
+  color: var(--text-muted);
+  font-family: 'DM Sans', 'Inter', sans-serif;
+}
+
+.textarea:focus {
+  border-color: #6366F1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+/* Subtle inner overlay for depth effect from the Stitch design */
+.depthOverlay {
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+  pointer-events: none;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}

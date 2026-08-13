@@ -1,0 +1,54 @@
+/* ============================================================
+   Badge — pill-shaped status indicator
+   Design tokens from AI Resume Coach design system
+   ============================================================ */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 9999px;       /* pill */
+  padding: 0.25rem 0.75rem;    /* py-1 px-3 */
+  font-size: 0.8125rem;        /* ~13 px, text-sm */
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  line-height: 1.4;
+  white-space: nowrap;
+  user-select: none;
+}
+
+/* ― Variants ― */
+
+/* success green: #84CC16 */
+.badge--green {
+  background-color: rgba(132, 204, 22, 0.12);
+  color: #84CC16;
+  border: 1px solid rgba(132, 204, 22, 0.25);
+}
+
+/* danger rose: #F43F5E */
+.badge--rose {
+  background-color: rgba(244, 63, 94, 0.12);
+  color: #F43F5E;
+  border: 1px solid rgba(244, 63, 94, 0.25);
+}
+
+/* warning amber: #F97316 */
+.badge--amber {
+  background-color: rgba(249, 115, 22, 0.12);
+  color: #F97316;
+  border: 1px solid rgba(249, 115, 22, 0.25);
+}
+
+/* primary indigo: #6366F1 */
+.badge--indigo {
+  background-color: rgba(99, 102, 241, 0.12);
+  color: #6366F1;
+  border: 1px solid rgba(99, 102, 241, 0.25);
+}
+
+/* accent cyan: #22D3EE */
+.badge--cyan {
+  background-color: rgba(34, 211, 238, 0.12);
+  color: #22D3EE;
+  border: 1px solid rgba(34, 211, 238, 0.25);
+}

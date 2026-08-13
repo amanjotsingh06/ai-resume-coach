@@ -1,0 +1,140 @@
+/* ── BulletImproverTab ────────────────────────────────── */
+
+.bullet-tab {
+  padding: 2rem 0;
+}
+
+.bullet-tab__empty {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--text-secondary);
+  font-style: italic;
+  padding: 3rem;
+  text-align: center;
+}
+
+.bullet-tab__header {
+  margin-bottom: 2rem;
+}
+
+.bullet-tab__title {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 1.375rem;
+  color: #F1F5F9;
+  margin: 0 0 0.35rem;
+}
+
+.bullet-tab__subtitle {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* Pairs list */
+.bullet-tab__list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* A single before → after row */
+.bullet-pair {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: start;
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .bullet-pair {
+    grid-template-columns: 1fr;
+  }
+  .bullet-pair__arrow {
+    transform: rotate(90deg);
+    text-align: center;
+  }
+}
+
+.bullet-pair__arrow {
+  font-size: 1.5rem;
+  color: var(--border-default);
+  padding-top: 0.5rem;
+  align-self: center;
+  flex-shrink: 0;
+}
+
+/* Individual card */
+.bullet-card {
+  border-radius: 10px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  height: 100%;
+}
+
+.bullet-card--before {
+  background: rgba(244, 63, 94, 0.06);
+  border: 1px solid rgba(244, 63, 94, 0.35);
+}
+
+.bullet-card--after {
+  background: rgba(99, 102, 241, 0.06);
+  border: 1px solid rgba(99, 102, 241, 0.40);
+}
+
+.bullet-card__badge-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #94A3B8;
+}
+
+.bullet-card__top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.bullet-card__text {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.bullet-card__text--dim    { color: var(--text-secondary); }
+.bullet-card__text--bright { color: var(--text-primary); }
+
+
+/* Copy button */
+.copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  background: rgba(99, 102, 241, 0.12);
+  border: 1px solid rgba(99, 102, 241, 0.30);
+  border-radius: 6px;
+  padding: 0.3125rem 0.625rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.copy-btn:hover {
+  background: rgba(99, 102, 241, 0.22);
+  color: var(--text-primary);
+  border-color: rgba(99, 102, 241, 0.55);
+}
+
+.copy-btn--copied {
+  background: rgba(132, 204, 22, 0.12);
+  border-color: rgba(132, 204, 22, 0.40);
+  color: #84CC16;
+}

@@ -1,0 +1,115 @@
+/* ============================================================
+   PublicNavbar — sticky top bar for unauthenticated pages
+   Design tokens: #0A0A0F bg, #6366F1 indigo, #2D2D3F border
+   Font: Syne (brand), DM Sans (actions)
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@700&family=DM+Sans:wght@400;500&display=swap');
+
+.public-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  width: 100%;
+  background-color: #0A0A0F;
+  border-bottom: 1px solid #2D2D3F;
+  /* subtle backdrop blur for when page content scrolls beneath */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.public-navbar__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media (min-width: 768px) {
+  .public-navbar__inner {
+    padding: 0 1.5rem;
+  }
+}
+
+/* ― Brand ― */
+.public-navbar__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  text-decoration: none;
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #F1F5F9;
+  letter-spacing: -0.02em;
+  transition: opacity 0.2s ease;
+}
+
+.public-navbar__brand:hover {
+  opacity: 0.85;
+}
+
+.public-navbar__brand-dot {
+  color: #6366F1;
+  font-size: 1.5rem;
+  line-height: 1;
+  margin-left: 1px;
+}
+
+/* ― Actions ― */
+.public-navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Ghost "Login" button */
+.btn-ghost {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #94A3B8;
+  background: transparent;
+  border: 1px solid #2D2D3F;
+  border-radius: 8px;
+  padding: 0.5rem 1.1rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.btn-ghost:hover {
+  color: #F1F5F9;
+  border-color: #6366F1;
+  background: rgba(99, 102, 241, 0.08);
+}
+
+/* Filled "Get Started" indigo button */
+.btn-filled {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #fff;
+  background: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%);
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1.25rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.15s ease,
+    box-shadow 0.2s ease;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.btn-filled:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.45);
+}
+
+.btn-filled:active {
+  transform: translateY(0);
+}
